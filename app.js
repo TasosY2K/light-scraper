@@ -7,6 +7,8 @@ const figlet = require("figlet");
 const clear = require("clear");
 const download = require("image-downloader");
 const tesseract = require("node-tesseract-ocr");
+const rimraf = require('rimraf');
+
 
 function generateID() {
   let result = "";
@@ -64,8 +66,16 @@ function getImage(keywords) {
   }).catch((err) => getImage());
 }
 
+require('dns').resolve('prnt.sc', async (err) => {
+  if (err) {
+     console.log(chalk.red("[-]") + " Can't connect to prnt.sc");
+     await process.exit();
+   }
+});
+
 if (!fs.existsSync(__dirname + "/photos")) fs.mkdirSync(__dirname + "/photos");
 if (!fs.existsSync(__dirname + "/temp")) fs.mkdirSync(__dirname + "/temp");
+rimraf(__dirname + "/temp/*", () => {});
 
 let prompt = readline.createInterface({
   input: process.stdin,
