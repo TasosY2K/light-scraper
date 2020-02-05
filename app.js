@@ -48,9 +48,9 @@ function getImage(keywords) {
         lang: "eng",
         oem: 1,
         psm: 3
-      }).then(text => {
+      }).then(async text => {
         let imgString = text.trim();
-        keywords.forEach((item, i) => {
+        await keywords.forEach((item, i) => {
           if (imgString.includes(keywords[i])) {
             console.log(chalk.green("[+]") + " Successfully found keyword: " + item);
             fs.copyFileSync(downloadOptions.dest, __dirname + "/photos/" + id + ".jpg");
