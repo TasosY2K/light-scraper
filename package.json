@@ -1,0 +1,25 @@
+{
+  "name": "light-scraper",
+  "version": "1.0.0",
+  "description": "A web scraper for prnt.sc",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TasosY2K/light-scraper.git"
+  },
+  "keywords": [
+    "web",
+    "scraper",
+    "scraper",
+    "lightshot"
+  ],
+  "author": "leandev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TasosY2K/light-scraper/issues"
+  },
+  "homepage": "https://github.com/TasosY2K/light-scraper#readme"
+}
