@@ -26,10 +26,12 @@
     "chalk": "^3.0.0",
     "cheerio": "^1.0.0-rc.3",
     "clear": "^0.1.0",
+    "dns": "^0.2.2",
     "figlet": "^1.2.4",
     "image-downloader": "^3.5.0",
     "node-tesseract-ocr": "^1.0.0",
     "puppeteer": "^2.1.1",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "rimraf": "^3.0.1"
   }
 }
