@@ -21,7 +21,7 @@ And make sure to add your installation folder to the Path enviroment variable
 
 **Check if Tesseract is installed correctly**
 ```
-    $ tesseract -v
+$ tesseract -v
 ```
 ## 2. Clone light-scraper
 **Clone**
@@ -36,8 +36,8 @@ https://github.com/TasosY2K/light-scraper/archive/master.zip
 
 ## 3. Install npm dependencies
 ```
-    $ cd light-scraper-master
-    $ npm i
+$ cd light-scraper-master
+$ npm i
 ```
 ## 4. Done
 You should be able to run light-scraper now
@@ -51,7 +51,7 @@ You just enter the keywords you want and the tool automatically searches random 
 If you want to use multiple keywords seperate them with commas
  e.g.
 ```
-    keyword1, keyword2, keyword3
+keyword1, keyword2, keyword3
 ```
 Images containing these keywords are saved at `/photos`
 
