@@ -98,8 +98,8 @@ clear();
 figlet('Light-Scraper', (err, data) => {
   console.log(data);
   console.log("\nVersion 1.0.0");
-  console.log("Coded by leandev\n");
-  console.log("http://l34nd3v.com");
+  console.log("Coded by leandev");
+  console.log("http://l34nd3v.com\n");
   prompt.question("Please enter search keywords(seperate with commas): ", (input) => {
     input = input.trim();
     let keywords = input.split(",");
