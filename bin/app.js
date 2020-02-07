@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require("fs");
 const exec = require("child_process").exec;
 const readline = require("readline");
@@ -17,7 +18,7 @@ const ON_DEATH = require("death")({uncaughtException: true});
 ON_DEATH((signal, err) => {
   let minutes = Math.floor(process.uptime() / 60);
   console.log("\nHits: " + hitcount + "\nRuntime: " + minutes + " minutes\n" + keywordlist + "\n");
-  rimraf(__dirname + "/temp/*", async () => {
+  rimraf(process.cwd() + "/temp/*", async () => {
     await process.exit();
   });
 })
@@ -53,7 +54,7 @@ function getImage(keywords) {
     console.log(chalk.blue("[*] ") + moment().format("YYYY-MM-DD HH:mm:ss - ") + id + " - Found source URL: " + src_url);
     let downloadOptions = {
       url: src_url,
-      dest: __dirname + "/temp/" + id + ".jpg"
+      dest: process.cwd() + "/temp/" + id + ".jpg"
     }
 
     await download.image(downloadOptions).then(async () => {
@@ -68,8 +69,8 @@ function getImage(keywords) {
           if (imgString.includes(keywords[i])) {
             console.log(chalk.green("[+] ") + moment().format("YYYY-MM-DD HH:mm:ss - ") + id + " - Successfully found keyword: " + item);
             hitcount++;
-            fs.copyFileSync(downloadOptions.dest, __dirname + "/photos/" + id + ".jpg");
-            console.log(chalk.blue("[*] ") + moment().format("YYYY-MM-DD HH:mm:ss - ") + id + " - Image copied at " + __dirname + "/photos/" + id + ".jpg");
+            fs.copyFileSync(downloadOptions.dest, process.cwd() + "/photos/" + id + ".jpg");
+            console.log(chalk.blue("[*] ") + moment().format("YYYY-MM-DD HH:mm:ss - ") + id + " - Image copied at " + process.cwd() + "/photos/" + id + ".jpg");
           }
         });
       }).catch((err) => console.log(chalk.red("[-] ") + moment().format("YYYY-MM-DD HH:mm:ss - ") + err));
@@ -79,9 +80,9 @@ function getImage(keywords) {
   }).catch((err) => getImage());
 }
 
-if (!fs.existsSync(__dirname + "/photos")) fs.mkdirSync(__dirname + "/photos");
-if (!fs.existsSync(__dirname + "/temp")) fs.mkdirSync(__dirname + "/temp");
-rimraf(__dirname + "/temp/*", () => {});
+if (!fs.existsSync(process.cwd() + "/photos")) fs.mkdirSync(process.cwd() + "/photos");
+if (!fs.existsSync(process.cwd() + "/temp")) fs.mkdirSync(process.cwd() + "/temp");
+rimraf(process.cwd() + "/temp/*", () => {});
 
 let hitcount = 0;
 let keywordlist = "";
@@ -100,9 +101,9 @@ exec("tesseract -v", (err, stdout, stderr) => {
       console.log(chalk.green("[+] ") + moment().format("YYYY-MM-DD HH:mm:ss -") + " https://prnt.sc is reachable");
       await figlet("Light-Scraper", (err, data) => {
         console.log(data);
-        console.log("\nVersion 1.0.1");
+        console.log("\nVersion 1.1.1");
         console.log("Coded by leandev");
-        console.log("https://discord.gg/chBXtHs");
+        console.log("https://www.npmjs.com/package/light-scraper");
         console.log("https://github.com/TasosY2K/light-scraper\n");
 
         prompt.question("Please enter search keywords (seperate with commas): ", (input) => {
@@ -130,6 +131,7 @@ exec("tesseract -v", (err, stdout, stderr) => {
     });
   } else {
     console.log(chalk.red("[-] ") + moment().format("YYYY-MM-DD HH:mm:ss -") + " Tesseract is not installed");
+    console.log(chalk.blue("[*] ") + moment().format("YYYY-MM-DD HH:mm:ss -") + " Visit: https://github.com/TasosY2K/light-scraper#1-install-tesseract");
     process.exit();
   }
 });

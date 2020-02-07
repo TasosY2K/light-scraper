@@ -1,10 +1,10 @@
 {
   "name": "light-scraper",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "An optical character recognition search tool for screenshots from prnt.sc",
-  "main": "app.js",
+  "main": "./bin/app.js",
   "scripts": {
-    "test": "node app.js"
+    "test": "node ./bin/app.js"
   },
   "repository": {
     "type": "git",
@@ -13,8 +13,13 @@
   "keywords": [
     "webscraper",
     "scraper",
-    "lightshot"
+    "lightshot",
+    "lightscraper",
+    "screenshot"
   ],
+  "bin": {
+    "light-scraper": "./bin/app.js"
+  },
   "author": "leandev",
   "license": "ISC",
   "bugs": {
