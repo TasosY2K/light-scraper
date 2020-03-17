@@ -50,7 +50,7 @@ https://github.com/TasosY2K/light-scraper/archive/master.zip
 
 ```
 $ cd light-scraper
-$ npm i
+$ npm install
 ```
 
 ## 4. Done
@@ -58,7 +58,7 @@ $ npm i
 You should be able to run light-scraper now
 
 ```
-$ node ./bin/app.js
+$ node bin/app.js
 ```
 
 # Usage
