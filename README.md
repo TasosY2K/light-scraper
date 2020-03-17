@@ -49,7 +49,7 @@ https://github.com/TasosY2K/light-scraper/archive/master.zip
 ## 3. Install npm dependencies
 
 ```
-$ cd light-scraper-master
+$ cd light-scraper
 $ npm i
 ```
 
